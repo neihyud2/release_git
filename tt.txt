@@ -1,0 +1,14 @@
+// Get Release page 1 and get all page
+    // listReleases.each((idx, el) => {        
+    //     const release = {}
+    //     release.name = $(el).text()
+    //     release.href = $(el).attr('href')
+    //     const subUrlRelease = '/releases/tag'
+    //     // const subUrlPage = '/releases?page='
+    //     if (release.href.includes(subUrlRelease)) releases.push(release)
+    //     // if (release.href.includes(subUrlPage)) pages.push(release.href) // many page
+    // })
+
+
+
+    // const listPage = $('.pagination a[href*="/releases?page"]:nth-last-child(2)').text()

@@ -1,0 +1,70 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400);
+:root {
+    --primary-color: rgb(116, 183, 234);
+}
+
+body {
+    font-family: 'Open Sans', Helvetica, sans-serif;
+}
+
+.btn {
+    border: none;
+    outline: none;
+}
+
+.grid {
+    width: 1200px;
+    max-width: 100%;
+    margin: 0 auto;
+    /* margin: 0 0 0 120px; */
+    /* padding-left: 200px; */
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -4px;
+    margin-right: -4px;
+}
+
+.col {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.l-3 {
+    flex-basis: 25%;
+    max-width: 25%;
+}
+
+.l-4 {
+    flex-basis: 33.3333%;
+    max-width: 33.3333%;
+}
+
+.l-5 {
+    flex-basis: 41.6667%;
+    max-width: 41.66667%;
+}
+
+.l-6 {
+    flex-basis: 50%;
+    max-width: 50%;
+}
+
+.l-7 {
+    flex-basis: 58.3333%;
+    max-width: 58.3333%;
+}
+
+
+.l-8 {
+    flex-basis: 66.6667%;
+    max-width: 66.6667%;
+}
+
+.l-9 {
+    flex-basis: 75%;
+    max-width: 75%;
+}
+

@@ -1,0 +1,29 @@
+{
+  "name": "res_git",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --inspect app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/neihyud/Res_Git.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/neihyud/Res_Git/issues"
+  },
+  "homepage": "https://github.com/neihyud/Res_Git#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.18.1",
+    "html2pug": "^4.0.0",
+    "nodemon": "^2.0.19",
+    "pug": "^3.0.2"
+  }
+}

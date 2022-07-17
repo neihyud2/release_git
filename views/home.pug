@@ -1,0 +1,57 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  title Document
+  link(rel='stylesheet', href='/css/base.css')
+  link(rel='stylesheet', href='/css/style.css')
+  script(src='https://kit.fontawesome.com/c909c23c5d.js', crossorigin='anonymous')
+.app
+  .header
+    form.url(action='', method='post')
+      input.url-input(type='text', placeholder='url ...', name='urlgit')
+      button.btn-search
+        i.fa-solid.fa-magnifying-glass
+  .grid.body
+    if (releases)
+      each release in releases
+        .releases-item
+          .releases-name Release #{release.name}
+          if (release.infoCommits) 
+            .releases-item-info.row
+              .commits-list.l-7
+                .time-line
+                each infoCommit in release.infoCommits
+                  .commits-item
+                    .time-line-circle
+                    span.commits-date #{infoCommit.commitDate}
+                    .commits-info
+                    each baseCommit in infoCommit.baseCommit
+                      .commits-info-item
+                        a(href=`${baseCommit.codeHref}`).commits-subinfo-item #{baseCommit.subInfoItem}
+                        .commits-info-committer
+                          img.commits-info-committer-img(src=`${baseCommit.authImg}`, alt='')
+                          span.commits-info-committer-name #{baseCommit.authCommit}
+                          span.commits-info-committer-date committed #{baseCommit.relativeTime}
+                        .commit-code
+                          a.commit-code-text(href=`${baseCommit.codeHref}`) #{baseCommit.codeText}
+                      
+              .releases-changelog.l-5 !{release.changelog}
+                 
+                //- p= allCommit
+              - if (release.changelog) {
+              - console.log('have changelog: ', release.changelog)
+              - }
+          else 
+            p No have infoCommit  
+    else 
+      h1 No content
+        
+  .nav
+    ul
+      li Bump version to 7.2.3
+      li Bump version to 7.2.3
+      li Bump version to 7.2.3
+      li Bump version to 7.2.3
+//- script(src='./index.js')
