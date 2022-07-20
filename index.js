@@ -122,6 +122,4 @@ async function getListUrl(url, subUrl) {
     }
 }
 
-
-
 app.listen(8080, () => console.log('You listening port 8080'))
