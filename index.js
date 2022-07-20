@@ -3,8 +3,6 @@ const path = require('path')
 const axios = require('axios')
 const cheerio = require('cheerio')
 const app = express()
-const bodyParser = require('body-parser')
-const html2pug = require('html2pug');
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -86,7 +84,7 @@ async function getData(req, res) {
                     timelineItems.push(infoTimeline)
                 })
                 release.infoCommits = timelineItems
-                break;
+                // break;
             }
         } catch (err) {
             console.log(err)
@@ -113,7 +111,6 @@ async function getListUrl(url, subUrl) {
             const content = $(el).find('.markdown-body.my-3').html();
             item.href = 'https://github.com' + $(el).find('a').attr('href')
             item.name = $(el).find('.flex-1 a:first-child').text()
-            // item.changelog = $(el).find('.markdown-body.my-3').html()
             item.changelog = content
             if (item.href.includes(subUrl)) {
                 list.push(item)
