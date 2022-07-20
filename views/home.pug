@@ -10,48 +10,48 @@ head
 .app
   .header
     form.url(action='', method='post')
-      input.url-input(type='text', placeholder='url ...', name='urlgit')
+      input.url-input(type='text', placeholder='Repo git ...', name='urlgit')
       button.btn-search
         i.fa-solid.fa-magnifying-glass
   .grid.body
     if (releases)
       each release in releases
         .releases-item
-          .releases-name Release #{release.name}
-          if (release.infoCommits) 
+          .releases-name(id=release.name) Release #{release.name}
+          if (release.infoCommits || release.changelog) 
             .releases-item-info.row
               .commits-list.l-7
                 .time-line
-                each infoCommit in release.infoCommits
-                  .commits-item
-                    .time-line-circle
-                    span.commits-date #{infoCommit.commitDate}
-                    .commits-info
-                    each baseCommit in infoCommit.baseCommit
-                      .commits-info-item
-                        a(href=`${baseCommit.codeHref}`).commits-subinfo-item #{baseCommit.subInfoItem}
-                        .commits-info-committer
-                          img.commits-info-committer-img(src=`${baseCommit.authImg}`, alt='')
-                          span.commits-info-committer-name #{baseCommit.authCommit}
-                          span.commits-info-committer-date committed #{baseCommit.relativeTime}
-                        .commit-code
-                          a.commit-code-text(href=`${baseCommit.codeHref}`) #{baseCommit.codeText}
-                      
+                if (release.infoCommits)
+                  each infoCommit in release.infoCommits
+                    .commits-item
+                      .time-line-circle
+                      span.commits-date #{infoCommit.commitDate}
+                      .commits-info
+                      each baseCommit in infoCommit.baseCommit
+                        .commits-info-item
+                          a(href=`${baseCommit.codeHref}`).commits-subinfo-item #{baseCommit.subInfoItem}
+                          .commits-info-committer
+                            img.commits-info-committer-img(src=`${baseCommit.authImg}`, alt='')
+                            span.commits-info-committer-name #{baseCommit.authCommit}
+                            span.commits-info-committer-date committed #{baseCommit.relativeTime}
+                          .commit-code
+                            a.commit-code-text(href=`${baseCommit.codeHref}`) #{baseCommit.codeText}
+                else   
+                  p(style='padding-left: 2px') Do not have commits     
               .releases-changelog.l-5 !{release.changelog}
-                 
-                //- p= allCommit
-              - if (release.changelog) {
-              - console.log('have changelog: ', release.changelog)
-              - }
           else 
-            p No have infoCommit  
+            p Do not have commits  
     else 
-      h1 No content
-        
-  .nav
-    ul
-      li Bump version to 7.2.3
-      li Bump version to 7.2.3
-      li Bump version to 7.2.3
-      li Bump version to 7.2.3
+      h1(style='margin-top: 100px; text-align: center') No content
+          
+  if (releases)
+    .nav
+      ul
+        each release in releases
+          li
+            a(href=`#${release.name}`) #{release.name}
+    //- else 
+    //-   h3 No content
+      
 //- script(src='./index.js')
